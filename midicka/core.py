@@ -1,6 +1,7 @@
 import time
 import rtmidi2
 import structlog
+from pynput.keyboard import Controller
 
 from midicka.models import MidiNote
 from midicka.models import Message
@@ -18,6 +19,8 @@ class Midicka:
     - Midi reference: https://newt.phys.unsw.edu.au/jw/notes.html
     """
     def __init__(self):
+        self._keyboard = Controller()
+
         self.in_ports = rtmidi2.get_in_ports()
         self.out_ports = rtmidi2.get_out_ports()
 
@@ -31,6 +34,10 @@ class Midicka:
     def select_out_port(self, index):
         self._midi_out.close_port()
         self._midi_out.open_port(index)
+    
+    def send_to_keyboard(self, letter: str):
+        self._keyboard.press(letter)
+        self._keyboard.release(letter)
     
     def send_message_out(self, note: MidiNote, velocity: int):
         """
