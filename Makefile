@@ -1,12 +1,12 @@
 help:
-	@python3.7 -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
+	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
 env-create: ## (re)create a development environment using tox
-	tox -e midicka --recreate
-	@echo -e "\r\nYou can activate the environment with:\r\n\r\n$$ source ./.tox/midicka/bin/activate\r\n"
+	tox -e devel --recreate
+	@echo -e "\r\nYou can activate the environment with:\r\n\r\n$$ source ./.tox/devel/bin/activate\r\n"
 
 env-compile: ## compile requirements.txt / requirements-dev.txt using pip-tools
-	pip-compile --no-index --no-header --no-emit-trusted-host --output-file requirements.txt requirements.in
+	pip-compile --no-header --no-emit-trusted-host --output-file requirements.txt requirements.in
 
 clean: ## clean
 	@rm -fr build/

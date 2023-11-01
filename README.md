@@ -45,3 +45,19 @@ python midicka/bin/1_hello_midi.py
 1. Update the `requirements.in`: Manual edition.
 2. Regenerate `requirements.txt`: Execute `make env-compile`
 2. Regenerate `tox environment`: Execute `make env-create`
+
+## WSL
+
+---> Not work by now. <----
+
+No MIDI support in WSL AFAIK
+
+Audio: https://github.com/Microsoft/WSL/issues/486
+
+1. sudo add-apt-repository ppa:therealkenc/wsl-pulseaudio
+2. sudo apt install pulseaudio
+3. export PULSE_SERVER=tcp:localhostnumpy ipython
+4. wget https://www2.cs.uic.edu/~i101/SoundFiles/StarWars3.wav
+5. aplay StarWars3.wav
+6. ln -s /usr/lib/x86_64-linux-gnu/alsa-lib/libasound_module_conf_pulse.so /usr/lib64/alsa-lib/libasound_module_conf_pulse.so
+7. 

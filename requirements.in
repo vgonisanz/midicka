@@ -1,3 +1,6 @@
-rtmidi2
+mido
+python-rtmidi
 pynput
 structlog
+typer
+pydantic
