@@ -60,48 +60,64 @@ Examples:
 - Magick "Confuse" (S-E-A): Ab4/G#4 (S), C5 (E), F#4/Gb4 (A) — Diminished chord, dissonant.
 
 
-### Basic spells proposal
+## Basic spells proposal
 
 Based on these rules, the best keybindings would be those that map each Magick to a chord that musically represents its in-game effect, ensuring that Magicks with opposite elements include dissonant intervals.
 
-| Note    | MIDI Value | Key           | Reasoning                                          |
-|---------|------------|---------------|----------------------------------------------------|
-| C4      | 60         | Water (Q)     | Base note                                          |
-| G#4/Ab4 | 68         | Lightning (A) | Tritone from Water, very dissonant                 |
-| E4      | 64         | Life (W)      | Major third from Water, sounds good                |
-| B4      | 71         | Arcane (S)    | Tritone from Life, dissonant                       |
-| G4      | 67         | Shield (E)    | Perfect fourth from Water, neutral                 |
-| C#5/Db5 | 73         | Earth (D)     | Tritone from Lightning, dissonant                  |
-| A4      | 69         | Cold (R)      | Minor sixth from Water, sounds dramatic but good   |
-| F4      | 65         | Fire (F)      | Perfect fourth from Cold, but dissonant with Water |
+| Key           | Note | MIDI | Explanation                                         |
+|---------------|------|------|-----------------------------------------------------|
+| Water (Q)     | C4   | 60   | Base note                                           |
+| Lightning (A) | G#4  | 68   | Tritone from Water, very dissonant                  |
+| Life (W)      | E4   | 64   | Major third from Water, sounds good                 |
+| Arcane (S)    | B4   | 71   | Tritone from Life, dissonant                        |
+| Shield (E)    | G4   | 67   | Perfect fourth from Water, neutral                  |
+| Earth (D)     | C#5  | 73   | Tritone from Lightning, dissonant                   |
+| Cold (R)      | A4   | 69   | Minor sixth from Water, sounds dramatic but good    |
+| Fire (F)      | F4   | 65   | Perfect fourth from Cold, dissonant with Water      |
 
-### Magicks
+## Armonic elements
 
-| Combination | Notes                         | MIDI IDs                | Result             |
-|-------------|-------------------------------|-------------------------|--------------------|
-| W-A         | E4, G#4/Ab4                   | 64, 68                  | Revive             |
-| Q-D-W       | C4, C#5/Db5, E4               | 60, 73, 64              | Grease             |
-| A-S-F       | G#4/Ab4, B4, F4               | 68, 71, 65              | Haste              |
-| S-E-QF-S    | B4, G4, F4, C4, B4            | 71, 67, 65, 60, 71      | Invisibility       |
-| A-S-A       | G#4/Ab4, B4, G#4/Ab4          | 68, 71, 68              | Teleport           |
-| R-S-E       | A4, B4, G4                    | 69, 71, 67              | Fear               |
-| W-E-D       | E4, G4, C#5/Db5               | 64, 67, 73              | Charm              |
-| QF-A-S-A    | C4+F4, G#4/Ab4, B4, G#4/Ab4  | 60+65, 68, 71, 68       | Thunder Bolt       |
-| Q-QF        | C4, C4+F4                     | 60, 60+65               | Rain               |
-| D-QF-Q-QF   | C#5/Db5, C4+F4, C4, C4+F4    | 73, 60+65, 60, 60+65    | Tornado            |
-| R-RQ-R      | A4, A4+E4, A4                 | 69, 69+64, 69           | Blizzard           |
-| F-D-FQ-D-F  | F4, C#5/Db5, F4+C4, C#5/Db5, F4 | 65, 73, 65+60, 73, 65 | Meteor Shower      |
-| QF-F-FQ-F-FQ| C4+F4, F4, C4+F4, F4, C4+F4  | 60+65, 65, 60+65, 65, 60+65 | Conflagration   |
-| QF-QF-A-S-A | C4+F4, C4+F4, G#4/Ab4, B4, G#4/Ab4 | 60+65, 60+65, 68, 71, 68 | Thunder Storm |
-| R-E         | A4, G4                        | 69, 67                  | Time Warp          |
-| RQ-S-RQ-E-RQ| A4+E4, B4, A4+E4, G4, A4+E4  | 69+64, 71, 69+64, 67, 69+64 | Vortex         |
-| QR-D-S-R    | C4+E4, C#5/Db5, B4, A4       | 60+64, 73, 71, 69       | Raise Dead        |
-| S-E-D-QF-S  | B4, G4, C#5/Db5, C4+F4, B4   | 71, 67, 73, 60+65, 71   | Summon Elemental  |
-| S-R-RQ-R-S  | B4, A4, A4+E4, A4, B4        | 71, 69, 69+64, 69, 71   | Summon Death      |
-| W-A-F       | E4, G#4/Ab4, F4               | 64, 68, 65              | Summon Phoenix    |
-| S-E         | B4, G4                        | 71, 67                  | Nullify           |
-| A-A-F-W     | G#4/Ab4, G#4/Ab4, F4, E4     | 68, 68, 65, 64          | Crash To Desktop  |
+| Spell   | Notes     | MIDIs  | Keys       |
+|---------|-----------|--------|------------|
+| Steam   | C4, F4    | 60, 65 | Q, F       |
+| Ice     | C4, A4    | 60, 69 | Q, R       |
+| Poison  | C4, B4    | 60, 71 | Q, S       |
 
+## Dissonant elements:
+
+| Spell   | Notes     | MIDIs  | Keys       |
+|---------|-----------|--------|------------|
+| FAIL    | G4, G#4   | 67, 68 | E, A       |
+| FAIL    | C4, G#4   | 60, 68 | A, Q       |
+| FAIL    | B4, E4    | 71, 64 | S, W       |
+| FAIL    | F4, A4    | 65, 69 | F, R       |
+
+## Magicks
+
+| Spell            | Notes                    | Combination      | MIDI IDs               |
+|------------------|--------------------------|------------------|------------------------|
+| Revive           | E4, G#4                  | W, A             | 64, 68                 |
+| Grease           | C4, C#5, E4              | Q, D, W          | 60, 73, 64             |
+| Haste            | G#4, B4, F4              | A, S, F          | 68, 71, 65             |
+| Invisibility     | B4, G4, F4, C4, B4       | S, E, Q, F, S    | 71, 67, 65, 60, 71     |
+| Teleport         | G#4, B4, G#4             | A, S, A          | 68, 71, 68             |
+| Fear             | A4, B4, G4               | R, S, E          | 69, 71, 67             |
+| Charm            | E4, G4, C#5              | W, E, D          | 64, 67, 73             |
+| Thunder Bolt     | C4, F4, G#4, B4, G#4     | Q, F, A, S, A    | 60, 65, 68, 71, 68     |
+| Rain             | C4, F4                   | Q, F             | 60, 65                 |
+| Tornado          | C#5, C4, F4, C4, F4      | D, Q, F, Q, F    | 73, 60, 65, 60, 65     |
+| Blizzard         | A4, E4, A4               | R, Q, R          | 69, 64, 69             |
+| Meteor Shower    | F4, C#5, C4, F4, C#5, F4 | F, D, F, Q, D, F | 65, 73, 60, 65, 73, 65 |
+| Conflagration    | C4, F4, F4, C4, F4       | Q, F, F, Q, F    | 60, 65, 65, 60, 65     |
+| Thunder Storm    | C4, F4, G#4, B4, G#4     | Q, F, A, S, A    | 60, 65, 68, 71, 68     |
+| Time Warp        | A4, G4                   | R, E             | 69, 67                 |
+| Vortex           | A4, E4, B4, G4, E4       | R, Q, S, E, Q    | 69, 64, 71, 67, 64     |
+| Raise Dead       | C4, E4, C#5, B4, A4      | Q, R, D, S, R    | 60, 64, 73, 71, 69     |
+| Summon Elemental | B4, G4, C#5, C4, F4      | S, E, D, Q, F    | 71, 67, 73, 60, 65     |
+| Summon Death     | B4, A4, E4, A4, B4       | S, R, Q, R, S    | 71, 69, 64, 69, 71     |
+| Summon Phoenix   | E4, G#4, F4              | W, A, F          | 64, 68, 65             |
+| Nullify          | B4, G4                   | S, E             | 71, 67                 |
+| Crash To Desktop | G#4, G#4, F4, E4         | A, A, F, W       | 68, 68, 65, 64         |
 
 ## References
 
