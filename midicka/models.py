@@ -2,8 +2,12 @@ from pydantic import BaseModel
 from enum import Enum
 
 class KeyState(Enum):
-    PRESS = "PRESS"
-    RELEASE = "RELEASE"
+    PRESS = 1
+    RELEASE = 0
+
+    def __str__(self):
+        return self.name
+
 
 class MidiMessage(BaseModel):
     """
@@ -32,3 +36,8 @@ class MidiMessage(BaseModel):
     state: KeyState
     velocity: int
     time: int
+
+    class Config:
+        json_encoders = {
+            KeyState: lambda x: x.value
+        }
