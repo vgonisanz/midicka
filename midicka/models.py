@@ -36,6 +36,7 @@ class MidiMessage(BaseModel):
     state: KeyState
     velocity: int
     time: int
+    relative_time: float = 0.0
 
     class Config:
         json_encoders = {

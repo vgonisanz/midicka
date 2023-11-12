@@ -1,3 +1,4 @@
+import time
 import mido
 import json
 
@@ -24,6 +25,8 @@ class Core:
 
     def read(self):
         with mido.open_input(self.input_port_name) as inport:
+            start_time = time.time()
+
             for msg in inport:
                 # Windows ñapa, not take signal TERM
                 if msg.type == 'note_on' and msg.note == 21:
@@ -36,7 +39,8 @@ class Core:
                         note=msg.note,
                         state=state,
                         velocity=msg.velocity,
-                        time=msg.time
+                        time=msg.time,
+                        relative_time = time.time() - start_time 
                     )
                     yield msg_midi
     
