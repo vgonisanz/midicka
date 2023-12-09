@@ -1,5 +1,11 @@
-from pydantic import BaseModel
 from enum import Enum
+import string
+from pynput.keyboard import Key
+from pydantic import (
+    BaseModel,
+    validator
+)
+
 
 class KeyState(Enum):
     PRESS = 1
@@ -42,3 +48,17 @@ class MidiMessage(BaseModel):
         json_encoders = {
             KeyState: lambda x: x.value
         }
+
+
+class MidiKeyMapping(BaseModel):
+    midi_note: int
+    keyboard_key: str
+
+    @validator('keyboard_key')
+    def validate_keyboard_key(cls, v):
+        valid_special_keys = set([k.name for k in Key])
+        valid_regular_keys = set(string.ascii_lowercase + string.digits + string.punctuation + ' ')
+        
+        if v not in valid_special_keys and v not in valid_regular_keys:
+            raise ValueError(f"{v} is not a valid keyboard key for pynput")
+        return v

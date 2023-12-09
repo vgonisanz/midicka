@@ -6,7 +6,7 @@ from structlog.processors import StackInfoRenderer, format_exc_info
 
 
 def configure_logs():
-    logging.basicConfig(stream=sys.stdout, level=logging.INFO)
+    logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
     structlog.configure(
         processors=[
