@@ -76,7 +76,7 @@ class Core:
     def run(self, mapping_file: str):
         """Run the core to listen midi and traslate keys"""
         logger.info("run", mapping_file=mapping_file)
-        self.keyboard_palette = KeyboardPalette.generate_default_palette()
+        self.keyboard_palette = KeyboardPalette.load_from_file(mapping_file)
         for msg in self.read():
             logger.debug("midi_msg_run", **msg.model_dump())
             key_str = self.keyboard_palette.get_key(msg.note)
