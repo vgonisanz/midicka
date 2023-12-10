@@ -1,16 +1,18 @@
 import json
+import structlog
 from typing import List
 from pydantic import (
-    FilePath
+    FilePath,
+    BaseModel
 )
 from midicka.models import MidiKeyMapping
 
 
-class KeyboardPalette():
-    mappings: List[MidiKeyMapping]
+logger = structlog.get_logger()
 
-    def __init__(self, mapping):
-        self.mappings = mapping
+
+class KeyboardPalette(BaseModel):
+    mappings: List[MidiKeyMapping] = []
 
     def get_key(self, midi_note: int) -> str:
         for mapping in self.mappings:
@@ -19,11 +21,13 @@ class KeyboardPalette():
         return ""
 
     def save_to_file(self, file_path: FilePath):
+        logger.info("save_to_file", path=file_path)
         with open(file_path, "w") as file:
             json.dump(self.dict(), file, indent=4)
 
     @classmethod
-    def load_from_file(cls, file_path: FilePath):
+    def load_from_file(cls, file_path: FilePath = FilePath()):         
+        logger.info("load_from_file", path=file_path)
         with open(file_path, "r") as file:
             data = json.load(file)
         return cls(**data)
@@ -35,3 +39,7 @@ class KeyboardPalette():
             MidiKeyMapping(midi_note=61, keyboard_key='s')
         ]
         return cls(mapping=default_mappings)
+
+    @classmethod
+    def generate_empty_palette(cls) -> 'KeyboardPalette':
+        return cls(mapping=[])

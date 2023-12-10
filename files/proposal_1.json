@@ -1,0 +1,60 @@
+{
+    "mappings": [
+        {
+            "midi_note": 60,
+            "keyboard_key": "q"
+        },
+        {
+            "midi_note": 61,
+            "keyboard_key": ""
+        },
+        {
+            "midi_note": 62,
+            "keyboard_key": ""
+        },
+        {
+            "midi_note": 63,
+            "keyboard_key": ""
+        },
+        {
+            "midi_note": 64,
+            "keyboard_key": "w"
+        },
+        {
+            "midi_note": 65,
+            "keyboard_key": "f"
+        },
+        {
+            "midi_note": 66,
+            "keyboard_key": ""
+        },
+        {
+            "midi_note": 67,
+            "keyboard_key": "e"
+        },
+        {
+            "midi_note": 68,
+            "keyboard_key": "a"
+        },
+        {
+            "midi_note": 69,
+            "keyboard_key": "r"
+        },
+        {
+            "midi_note": 70,
+            "keyboard_key": ""
+        },
+        {
+            "midi_note": 71,
+            "keyboard_key": "s"
+        },
+        {
+            "midi_note": 72,
+            "keyboard_key": ""
+        },
+        {
+            "midi_note": 73,
+            "keyboard_key": "d"
+        }
+    ]
+}
